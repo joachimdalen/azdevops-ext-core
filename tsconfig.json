@@ -11,15 +11,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
     "outDir": "dist"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "exclude": ["src/__mocks__", "src/__tests__"]
 }

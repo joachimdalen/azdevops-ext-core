@@ -1,0 +1,14 @@
+[
+  {
+    "publishDate": "16-01-1970",
+    "version": "0.1.0",
+    "sections": {
+      "summary": [
+        {
+          "type": "text",
+          "content": "Initial release"
+        }
+      ]
+    }
+  }
+]

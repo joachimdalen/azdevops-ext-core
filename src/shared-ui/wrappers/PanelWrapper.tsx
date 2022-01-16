@@ -1,8 +1,7 @@
-import { Button, IButtonProps } from "azure-devops-ui/Button";
-import { ButtonGroup } from "azure-devops-ui/ButtonGroup";
-import VersionDisplay, {
-  VersionDisplayProps,
-} from "../component/VersionDisplay";
+import { Button, IButtonProps } from 'azure-devops-ui/Button';
+import { ButtonGroup } from 'azure-devops-ui/ButtonGroup';
+
+import VersionDisplay, { VersionDisplayProps } from '../component/VersionDisplay';
 
 interface PanelWrapperProps extends VersionDisplayProps {
   children: React.ReactNode;
@@ -17,8 +16,8 @@ const PanelWrapper = ({
   okButton,
   showVersion = true,
   moduleVersion,
-  showExtensionVersion,
-}: PanelWrapperProps) => {
+  showExtensionVersion
+}: PanelWrapperProps): JSX.Element => {
   return (
     <div className="flex-column flex-grow">
       <div className="flex-grow">{children}</div>

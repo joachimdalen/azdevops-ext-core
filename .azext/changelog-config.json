@@ -1,0 +1,71 @@
+{
+  "repository": "joachimdalen/azdevops-ext-core",
+  "changelogTitle": {
+    "size": "h1",
+    "format": "Changelog"
+  },
+  "releaseTitleFormat": {
+    "size": "h2",
+    "format": "{{version}} ({{publishDate}})"
+  },
+  "moduleTitleFormat": {
+    "size": "h4",
+    "format": "`{{name}}@{{version}}`"
+  },
+  "moduleChangesTitle": {
+    "size": "h3",
+    "format": ":package: Module changes"
+  },
+  "typeSize": "h3",
+  "typeMapping": {
+    "feature": ":rocket: Features",
+    "fix": ":bug: Fixes",
+    "tests": ":test_tube: Tests",
+    "other": ":speech_balloon: Other",
+    "docs": ":memo: Documentation"
+  },
+  "typeResourcePrefixMapping": {
+    "feature": {
+      "issue": "Suggested in:",
+      "pullRequest": "Implemented in:"
+    },
+    "fix": {
+      "issue": "Reported in:",
+      "pullRequest": "Fixed in:"
+    }
+  },
+  "sections": {
+    "summary": {
+      "title": {
+        "size": "h4",
+        "format": ":speech_balloon: Summary"
+      }
+    }
+  },
+  "attributionTitleFormat": {
+    "size": "h2",
+    "format": ":star2: Contributors"
+  },
+  "attributionSubTitle": {
+    "format": "Thank you to the following for contributing to the latest release"
+  },
+  "attributionLinkTextFormat": {
+    "format": "@{{ghUsername}}"
+  },
+  "knownAuthors": [],
+  "useDescriptiveIssues": true,
+  "useDescriptivePullRequests": true,
+  "replaceEmojis": {
+    "types": true,
+    "changelogTitle": true,
+    "releaseTitle": true,
+    "moduleTitle": true,
+    "attributionTitle": true,
+    "attributionSubTitle": true,
+    "moduleChangesTitle": true,
+    "githubIssues": false,
+    "githubPullRequests": false,
+    "sectionContent": true,
+    "sectionTitle": true
+  }
+}

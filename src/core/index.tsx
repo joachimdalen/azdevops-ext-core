@@ -1,2 +1,2 @@
-export * from "./webLogger";
-export * from "./utils";
+export { default as webLogger } from './webLogger';
+export * from './utils';
