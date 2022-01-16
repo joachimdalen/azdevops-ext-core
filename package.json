@@ -8,9 +8,10 @@
     "copy:styles": "cp -r ./src/styles ./dist/styles",
     "lint": "eslint src --ignore-path .eslintignore --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "eslint --fix src --ignore-path .eslintignore --ext ts --ext tsx --ext js --ext jsx",
-    "test": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose",
     "autoformat": "./node_modules/.bin/prettier --write 'src/**/**.scss' 'src/**/*.tsx'",
-    "test:coverage": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose --coverage"
+    "test:coverage": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose --coverage",
+    "test": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose",
+    "test:ci": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose --coverage --ci"
   },
   "repository": {
     "type": "git",
