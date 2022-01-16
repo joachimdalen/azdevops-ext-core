@@ -1,0 +1,33 @@
+{
+  "name": "@joachimdalen/azdevops-ext-core",
+  "version": "0.0.1",
+  "description": "Core components that are used in my extensions for Azure DevOps",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -d && npm run copy:styles",
+    "copy:styles": "cp -r ./src/styles ./dist/styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joachimdalen/azdevops-ext-core.git"
+  },
+  "author": "Joachim Dalen <joachim@dalenapps.no> (https://joachimdalen.no/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joachimdalen/azdevops-ext-core/issues"
+  },
+  "homepage": "https://github.com/joachimdalen/azdevops-ext-core#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.8",
+    "@types/react": "^16.14.14",
+    "@types/react-dom": "^16.9.14",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "azure-devops-extension-api": "^1.158.0",
+    "azure-devops-extension-sdk": "^2.0.11",
+    "azure-devops-ui": "^2.167.28",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
