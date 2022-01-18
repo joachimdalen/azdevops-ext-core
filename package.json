@@ -13,7 +13,8 @@
     "test": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose",
     "test:ci": "env TEST_REPORT_FILENAME=test-results.xml jest --verbose --coverage --ci",
     "prepack": "mv README.md git.md && mv npm.md README.md",
-    "postpack": "mv README.md npm.md && mv git.md README.md"
+    "postpack": "mv README.md npm.md && mv git.md README.md",
+    "changelog": "azext changelog generate --format"
   },
   "repository": {
     "type": "git",

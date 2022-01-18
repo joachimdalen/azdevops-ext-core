@@ -1,4 +1,5 @@
-trigger: none
+trigger:
+  none
   # batch: true
   # branches:
   #   include:
@@ -22,134 +23,121 @@ stages:
   - stage: buildAndTest
     displayName: Build & Test
     jobs:
-      - job: "build"
+      - job: 'build'
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "16.x"
-            displayName: "Install Node.js"
+              versionSpec: '16.x'
+            displayName: 'Install Node.js'
           - task: Cache@2
             displayName: Cache npm
             inputs:
               key: 'npm | "$(Agent.OS)" | package-lock.json'
-              path: "$(npm_config_cache)"
+              path: '$(npm_config_cache)'
               restoreKeys: |
                 npm | "$(Agent.OS)"
                 npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/package-lock.json
           - task: Npm@1
-            displayName: "Install dependencies"
+            displayName: 'Install dependencies'
             inputs:
               command: install
           - task: Npm@1
-            displayName: "Run tests"
+            displayName: 'Run tests'
             inputs:
-              command: "custom"
-              customCommand: "run test:ci"
+              command: 'custom'
+              customCommand: 'run test:ci'
           - task: Bash@3
-            displayName: "Move cover files"
+            displayName: 'Move cover files'
             inputs:
-              targetType: "inline"
+              targetType: 'inline'
               script: |
                 cp -r $(Build.SourcesDirectory)/coverage $(Build.ArtifactStagingDirectory)
           - task: Bash@3
-            displayName: "Move report"
+            displayName: 'Move report'
             inputs:
-              targetType: "inline"
+              targetType: 'inline'
               script: |
                 mkdir $(Build.ArtifactStagingDirectory)/reports
                 cp $(Build.SourcesDirectory)/test-results.xml $(Build.ArtifactStagingDirectory)/reports/test-results.xml
           - task: Npm@1
-            displayName: "Build package"
+            displayName: 'Build package'
             inputs:
               command: custom
-              customCommand: "run build"
+              customCommand: 'run build'
           - task: Npm@1
-            displayName: "Package"
+            displayName: 'Package'
             inputs:
               command: custom
-              customCommand: "pack"
+              customCommand: 'pack'
           - task: Bash@3
-            displayName: "Move files"
+            displayName: 'Move files'
             inputs:
               targetType: inline
               script: |
                 mkdir -p $(Build.ArtifactStagingDirectory)/npm
                 mv *.tgz $(Build.ArtifactStagingDirectory)/npm/
           - task: Bash@3
-            displayName: "Get Package Version"
+            displayName: 'Get Package Version'
             name: SetVersion
             inputs:
               targetType: inline
               script: echo "##vso[task.setvariable variable=NPM_PACKAGE_VERSION;isoutput=true]$(npm pkg get version | tr -d '"')"
           - task: PublishPipelineArtifact@1
-            displayName: "Publish NPM Artifact"
+            displayName: 'Publish NPM Artifact'
             inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/npm"
-              artifact: "npm-package"
-              publishLocation: "pipeline"
+              targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+              artifact: 'npm-package'
+              publishLocation: 'pipeline'
           - task: PublishTestResults@2
-            displayName: "Publish test results"
+            displayName: 'Publish test results'
             inputs:
-              testResultsFormat: "JUnit"
-              testResultsFiles: "$(Build.ArtifactStagingDirectory)/reports/test-results.xml"
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '$(Build.ArtifactStagingDirectory)/reports/test-results.xml'
           - task: PublishCodeCoverageResults@1
-            displayName: "Publish coverage"
+            displayName: 'Publish coverage'
             inputs:
-              codeCoverageTool: "Cobertura"
-              summaryFileLocation: "$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml"
-              pathToSources: "$(Build.SourcesDirectory)/src"
-          - task: Bash@3
-            displayName: "Generate changelog"
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml'
+              pathToSources: '$(Build.SourcesDirectory)/src'
+          - task: Npm@1
+            displayName: 'Build single version changelog'
             inputs:
-              workingDirectory: $(Build.SourcesDirectory)
-              targetType: inline
-              script: node ./dist/azext.js --ci ado changelog generate --version $(SetVersion.NPM_PACKAGE_VERSION) --format --output v$(SetVersion.NPM_PACKAGE_VERSION).md
+              command: custom
+              customCommand: run changelog -- --version $(SetVersion.NPM_PACKAGE_VERSION) --output v$(SetVersion.NPM_PACKAGE_VERSION).md
           - task: PublishPipelineArtifact@1
-            displayName: "Publish Changelog"
+            displayName: 'Publish Changelog'
             inputs:
-              targetPath: "$(Build.SourcesDirectory)/v$(SetVersion.NPM_PACKAGE_VERSION).md"
-              artifact: "changelog"
-              publishLocation: "pipeline"
+              targetPath: '$(Build.SourcesDirectory)/v$(SetVersion.NPM_PACKAGE_VERSION).md'
+              artifact: 'changelog'
+              publishLocation: 'pipeline'
   - stage: publishPackage
-    displayName: "Publish package"
+    displayName: 'Publish package'
     condition: and(succeeded(), eq(variables.isMaster, true))
     dependsOn: buildAndTest
     jobs:
-      - deployment: "publish"
-        displayName: "[PROD] Publish package"
+      - deployment: 'publish'
+        displayName: '[PROD] Publish package'
         variables:
           - name: PACKAGE_VERSION
             value: $[ stageDependencies.buildAndTest.build.outputs['SetVersion.NPM_PACKAGE_VERSION'] ]
-        environment: "npm-azdevops-ext-core-env"
+        environment: 'npm-azdevops-ext-core-env'
         strategy:
           runOnce:
             deploy:
               steps:
                 - download: none
                 - download: current
-                  displayName: "Download Package"
-                  artifact: "npm-package"
+                  displayName: 'Download Package'
+                  artifact: 'npm-package'
                 # - download: current
                 #   artifact: "changelog"
                 - task: Bash@3
                   inputs:
                     targetType: inline
-                    script: "ls $(Pipeline.Workspace)/npm-package"
+                    script: 'ls $(Pipeline.Workspace)/npm-package'
                 - task: Npm@1
-                  displayName: "Publish to NPM"
+                  displayName: 'Publish to NPM'
                   inputs:
                     command: custom
                     customEndpoint: NPMJS
-                    customCommand: publish $(Pipeline.Workspace)/npm-package/joachimdalen-azext-$(PACKAGE_VERSION).tgz
-                # - task: GitHubRelease@1
-                #   displayName: "Create GitHub Release"
-                #   inputs:
-                #     gitHubConnection: github-azext
-                #     repositoryName: joachimdalen/azext
-                #     tagSource: userSpecifiedTag
-                #     tag: v$(PACKAGE_VERSION)
-                #     title: "v$(PACKAGE_VERSION): Update"
-                #     addChangeLog: false
-                #     isPreRelease: $${{ parameters.IS_PREVIEW }}
-                #     releaseNotesSource: filePath
-                #     releaseNotesFilePath: $(Pipeline.Workspace)/changelog/v$(PACKAGE_VERSION).md
+                    customCommand: publish $(Pipeline.Workspace)/npm-package/joachimdalen-azdevops-ext-core-$(PACKAGE_VERSION).tgz
