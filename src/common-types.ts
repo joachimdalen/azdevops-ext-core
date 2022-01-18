@@ -3,3 +3,8 @@ export interface ActionResult<T> {
   message?: string;
   data?: T;
 }
+
+export enum ScopeType {
+  Default = 'Default',
+  User = 'User'
+}
