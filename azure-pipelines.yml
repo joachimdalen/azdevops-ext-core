@@ -140,4 +140,4 @@ stages:
                   inputs:
                     command: custom
                     customEndpoint: NPMJS
-                    customCommand: publish $(Pipeline.Workspace)/npm-package/joachimdalen-azdevops-ext-core-$(PACKAGE_VERSION).tgz
+                    customCommand: publish $(Pipeline.Workspace)/npm-package/joachimdalen-azdevops-ext-core-$(PACKAGE_VERSION).tgz --access public
