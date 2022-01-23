@@ -8,3 +8,9 @@ export enum ScopeType {
   Default = 'Default',
   User = 'User'
 }
+
+export interface IInternalIdentity {
+  entityId: string;
+  image?: string;
+  displayName: string;
+}

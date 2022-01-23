@@ -1,6 +1,7 @@
 export { default as LoadingSection } from './component/LoadingSection';
 export { default as VersionDisplay } from './component/VersionDisplay';
 export { default as ExtendedZeroData } from './component/ExtendedZeroData';
+export { default as IdentityPicker } from './component/IdentityPicker';
 export { default as useDropdownSelection } from './hooks/useDropdownSelection';
 export { default as useResizeTimeout } from './hooks/useResizeTimeout';
 export { default as PanelWrapper } from './wrappers/PanelWrapper';
