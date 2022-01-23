@@ -2,7 +2,11 @@
   {
     "publishDate": "2022-01-XX",
     "version": "0.2.0",
-    "changes": [{ "type": "feature", "description": "Added `ExtendedZeroData`" }]
+    "changes": [
+      { "type": "feature", "description": "Added `ExtendedZeroData`" },
+      { "type": "feature", "description": "Added `getCurrentWorkItemId` to `DevOpsService`" },
+      { "type": "feature", "description": "Added `IdentityPicker`" }
+    ]
   },
   {
     "publishDate": "2022-01-18",
