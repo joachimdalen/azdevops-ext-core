@@ -3,11 +3,13 @@ import { CoreRestClient, ProjectProperty } from 'azure-devops-extension-api/Core
 import {
   WorkItem,
   WorkItemExpand,
+  WorkItemTagDefinition,
   WorkItemTrackingRestClient,
   WorkItemType
 } from 'azure-devops-extension-api/WorkItemTracking';
 import { WorkItemTrackingProcessRestClient } from 'azure-devops-extension-api/WorkItemTrackingProcess';
 
+import { ExtendedWorkItemTrackingRestClient } from '../clients/WorkItemTracking/ExtendedWorkItemTrackingRestClient';
 import { getChildIds, getParentId } from '../core/workItemUtils';
 import DevOpsService, { IDevOpsService } from './DevOpsService';
 
@@ -27,6 +29,7 @@ export interface IWorkItemService {
   getWorkItems(ids: number[], expand?: WorkItemExpand): Promise<WorkItem[]>;
   setWorkItemState(id: number, state: string): Promise<WorkItem>;
   getProcessTemplateName(): Promise<string | undefined>;
+  getTags(): Promise<WorkItemTagDefinition[] | undefined>;
 }
 
 class WorkItemService implements IWorkItemService {
@@ -138,6 +141,16 @@ class WorkItemService implements IWorkItemService {
       id
     );
     return updated;
+  }
+
+  public async getTags(): Promise<WorkItemTagDefinition[] | undefined> {
+    const project = await this._devOpsService.getProject();
+
+    if (project) {
+      const client = getClient(ExtendedWorkItemTrackingRestClient);
+      const tags = await client.getWorkItemTags('demoproject');
+      return tags;
+    }
   }
 }
 export default WorkItemService;
