@@ -6,11 +6,10 @@ import {
 } from 'azure-devops-ui/IdentityPicker';
 import { useEffect, useMemo, useState } from 'react';
 
-import { IInternalIdentity } from '../..';
-
+import { IInternalIdentity, IInternalIdentityType } from '../..';
 interface IdentityPickerProps
   extends Omit<IIdentityPickerDropdownProps, 'pickerProvider' | 'value' | 'onChange'> {
-  identity: IInternalIdentity;
+  identity?: IInternalIdentity;
   onChange: (item?: IInternalIdentity) => boolean | void;
 }
 
@@ -22,6 +21,7 @@ const IdentityPicker = ({ onChange, identity, ...rest }: IdentityPickerProps): J
 
   useEffect(() => {
     async function loadIdentity() {
+      if (identity === undefined) return;
       if ((intId === undefined || intId.entityId !== identity.entityId) && !loading) {
         setLoading(true);
 
@@ -43,12 +43,15 @@ const IdentityPicker = ({ onChange, identity, ...rest }: IdentityPickerProps): J
       pickerProvider={identityProvider}
       value={intId}
       onChange={identity => {
-        if (identity) {
+        if (identity && identity.localId) {
           setIntId(identity);
           const id: IInternalIdentity = {
+            id: identity.localId,
+            descriptor: identity.subjectDescriptor,
             entityId: identity.entityId,
             displayName: identity.displayName || 'Unknown User',
-            image: identity.image
+            image: identity.image,
+            entityType: identity.entityType as IInternalIdentityType
           };
           onChange(id);
         }
