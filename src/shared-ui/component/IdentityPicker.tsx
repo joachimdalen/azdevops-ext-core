@@ -43,10 +43,10 @@ const IdentityPicker = ({ onChange, identity, ...rest }: IdentityPickerProps): J
       pickerProvider={identityProvider}
       value={intId}
       onChange={identity => {
-        if (identity && identity.localId) {
+        if (identity) {
           setIntId(identity);
           const id: IInternalIdentity = {
-            id: identity.localId,
+            id: identity.localId || identity.entityId,
             descriptor: identity.subjectDescriptor,
             entityId: identity.entityId,
             displayName: identity.displayName || 'Unknown User',

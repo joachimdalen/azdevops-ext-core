@@ -9,7 +9,7 @@ export enum ScopeType {
   User = 'User'
 }
 
-export type IInternalIdentityType = 'user' | 'group' | 'custom';
+export type IInternalIdentityType = 'User' | 'Group' | 'Custom';
 export interface IInternalIdentity {
   entityId: string;
   id: string;
