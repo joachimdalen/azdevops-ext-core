@@ -59,4 +59,20 @@ export default class DevOpsService implements IDevOpsService {
       return undefined;
     }
   }
+  public async getQueryParameters(): Promise<
+    | {
+        [key: string]: string;
+      }
+    | undefined
+  > {
+    const navService = await DevOps.getService<IHostNavigationService>(
+      'ms.vss-features.host-navigation-service'
+    );
+
+    const params = await navService.getQueryParams();
+
+    if (Object.keys(params).length === 0) return undefined;
+
+    return params;
+  }
 }
