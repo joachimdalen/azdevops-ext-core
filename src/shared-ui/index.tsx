@@ -4,6 +4,7 @@ export { default as ExtendedZeroData } from './component/ExtendedZeroData';
 export { default as IdentityPicker } from './component/IdentityPicker';
 export { default as useDropdownSelection } from './hooks/useDropdownSelection';
 export { default as useResizeTimeout } from './hooks/useResizeTimeout';
+export { default as useBooleanToggle } from './hooks/useBooleanToggle';
 export { default as PanelWrapper } from './wrappers/PanelWrapper';
 export { default as showRootComponent } from './showRootComponent';
 export * from './azure-devops-theme';
