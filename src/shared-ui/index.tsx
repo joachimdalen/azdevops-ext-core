@@ -7,4 +7,5 @@ export { default as useResizeTimeout } from './hooks/useResizeTimeout';
 export { default as useBooleanToggle } from './hooks/useBooleanToggle';
 export { default as PanelWrapper } from './wrappers/PanelWrapper';
 export { default as showRootComponent } from './showRootComponent';
+export { default as ErrorBoundary } from './ErrorBoundary';
 export * from './azure-devops-theme';
