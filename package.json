@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/azdevops-ext-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core components that are used in my extensions for Azure DevOps",
   "main": "dist/index.js",
   "scripts": {
