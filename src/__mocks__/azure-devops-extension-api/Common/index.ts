@@ -1,7 +1,7 @@
 import { RestClientFactory, IVssRestClientOptions } from 'azure-devops-extension-api';
-import { CoreRestClient } from './Core';
-import { WorkItemTrackingRestClient } from './WorkItemTracking';
-import { WorkItemTrackingProcessRestClient } from './WorkItemTrackingProcess';
+import { CoreRestClient } from '../Core';
+import { WorkItemTrackingRestClient } from '../WorkItemTracking';
+import { WorkItemTrackingProcessRestClient } from '../WorkItemTrackingProcess';
 
 export function getClient(clientClass: any) {
   switch (new clientClass().TYPE) {
