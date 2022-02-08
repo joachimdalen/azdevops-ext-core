@@ -1,10 +1,17 @@
 # Changelog
 
-## 0.2.0 (2022-01-XX)
+## 0.2.0 (2022-02-08)
 
 ### 🚀 Features
 
-- Added `ExtendedZeroData`
+- Added more components
+  - Implemented in: [PR#2 - Additional components](https://github.com/joachimdalen/azdevops-ext-core/pull/2)
+
+## 🌟 Contributors
+
+Thank you to the following for contributing to the latest release
+
+- [@joachimdalen](https://github.com/joachimdalen)
 
 ---
 
@@ -13,7 +20,5 @@
 #### 💬 Summary
 
 Initial release
-
----
 
 ---

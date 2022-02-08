@@ -1,4 +1,12 @@
 {
   "issues": [],
-  "pullRequests": []
+  "pullRequests": [
+    {
+      "id": 842996529,
+      "number": 2,
+      "submitter": "joachimdalen",
+      "title": "Additional components",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/2"
+    }
+  ]
 }

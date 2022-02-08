@@ -1,12 +1,8 @@
 [
   {
-    "publishDate": "2022-01-XX",
+    "publishDate": "2022-02-08",
     "version": "0.2.0",
-    "changes": [
-      { "type": "feature", "description": "Added `ExtendedZeroData`" },
-      { "type": "feature", "description": "Added `getCurrentWorkItemId` to `DevOpsService`" },
-      { "type": "feature", "description": "Added `IdentityPicker`" }
-    ]
+    "changes": [{ "type": "feature", "description": "Added more components", "pullRequest": 2 }]
   },
   {
     "publishDate": "2022-01-18",
