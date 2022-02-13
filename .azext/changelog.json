@@ -2,7 +2,28 @@
   {
     "publishDate": "2022-02-XX",
     "version": "0.3.0",
-    "changes": [{ "type": "feature", "description": "Added `showDialog` to show custom dialog" }]
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added `showDialog` to show custom dialog",
+        "pullRequest": 5
+      },
+      {
+        "type": "feature",
+        "description": "Added additional parameters to get work item methods",
+        "pullRequest": 5
+      },
+      {
+        "type": "fix",
+        "description": "Fixed static title in `ExtendedZeroData`",
+        "pullRequest": 5
+      },
+      {
+        "type": "feature",
+        "description": "Added `title` and `description` to `ExtendedZeroData`",
+        "pullRequest": 5
+      }
+    ]
   },
   {
     "publishDate": "2022-02-08",

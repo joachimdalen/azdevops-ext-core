@@ -1,17 +1,33 @@
 # Changelog
 
+## 0.3.0 (2022-02-XX)
+
+### 🚀 Features
+
+- Added `showDialog` to show custom dialog
+
+  - Implemented in: [PR#5 - Updates](https://github.com/joachimdalen/azdevops-ext-core/pull/5)
+
+- Added additional parameters to get work item methods
+
+  - Implemented in: [PR#5 - Updates](https://github.com/joachimdalen/azdevops-ext-core/pull/5)
+
+- Added `title` and `description` to `ExtendedZeroData`
+  - Implemented in: [PR#5 - Updates](https://github.com/joachimdalen/azdevops-ext-core/pull/5)
+
+### 🐛 Fixes
+
+- Fixed static title in `ExtendedZeroData`
+  - Fixed in: [PR#5 - Updates](https://github.com/joachimdalen/azdevops-ext-core/pull/5)
+
+---
+
 ## 0.2.0 (2022-02-08)
 
 ### 🚀 Features
 
 - Added more components
   - Implemented in: [PR#2 - Additional components](https://github.com/joachimdalen/azdevops-ext-core/pull/2)
-
-## 🌟 Contributors
-
-Thank you to the following for contributing to the latest release
-
-- [@joachimdalen](https://github.com/joachimdalen)
 
 ---
 
@@ -20,5 +36,7 @@ Thank you to the following for contributing to the latest release
 #### 💬 Summary
 
 Initial release
+
+---
 
 ---
