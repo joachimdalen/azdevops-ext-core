@@ -6,14 +6,19 @@ import {
 } from 'azure-devops-ui/IdentityPicker';
 import { useEffect, useMemo, useState } from 'react';
 
-import { IInternalIdentity, IInternalIdentityType } from '../..';
-interface IdentityPickerProps
+import { IInternalIdentity, IInternalIdentityType } from '../../CommonTypes';
+
+export interface IdentityPickerProps
   extends Omit<IIdentityPickerDropdownProps, 'pickerProvider' | 'value' | 'onChange'> {
   identity?: IInternalIdentity;
   onChange: (item?: IInternalIdentity) => boolean | void;
 }
 
-const IdentityPicker = ({ onChange, identity, ...rest }: IdentityPickerProps): JSX.Element => {
+export const IdentityPicker = ({
+  onChange,
+  identity,
+  ...rest
+}: IdentityPickerProps): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false);
   const identityProvider = useMemo(() => {
     return new PeoplePickerProvider();
@@ -60,5 +65,3 @@ const IdentityPicker = ({ onChange, identity, ...rest }: IdentityPickerProps): J
     />
   );
 };
-
-export default IdentityPicker;

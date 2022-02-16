@@ -5,7 +5,7 @@ import {
 } from 'azure-devops-ui/Utilities/DropdownSelection';
 import { useEffect, useMemo } from 'react';
 
-function useDropdownSelection(
+export function useDropdownSelection(
   items: IListBoxItem<any>[],
   selected?: string | string[],
   multi?: boolean
@@ -32,5 +32,3 @@ function useDropdownSelection(
 
   return selection;
 }
-
-export default useDropdownSelection;

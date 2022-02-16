@@ -22,6 +22,10 @@
         "type": "feature",
         "description": "Added `title` and `description` to `ExtendedZeroData`",
         "pullRequest": 5
+      },
+      {
+        "type": "enhancement",
+        "description": "Refactored imports and moved away from barrel imports"
       }
     ]
   },

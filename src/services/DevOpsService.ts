@@ -19,7 +19,7 @@ export interface IDevOpsService {
   showDialog<T, DialogIds>(id: DialogIds, options: IDialogOptions<T>): Promise<void>;
 }
 
-export default class DevOpsService implements IDevOpsService {
+export class DevOpsService implements IDevOpsService {
   public async getProject(): Promise<IProjectInfo | undefined> {
     const projectService = await DevOps.getService<IProjectPageService>(
       'ms.vss-tfs-web.tfs-page-data-service'

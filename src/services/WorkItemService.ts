@@ -1,7 +1,6 @@
 import { getClient } from 'azure-devops-extension-api/Common';
 import { CoreRestClient, ProjectProperty } from 'azure-devops-extension-api/Core';
 import {
-  QueryErrorPolicy,
   WorkItem,
   WorkItemErrorPolicy,
   WorkItemExpand,
@@ -11,9 +10,9 @@ import {
 } from 'azure-devops-extension-api/WorkItemTracking';
 import { WorkItemTrackingProcessRestClient } from 'azure-devops-extension-api/WorkItemTrackingProcess';
 
-import { ExtendedWorkItemTrackingRestClient } from '../clients/WorkItemTracking/ExtendedWorkItemTrackingRestClient';
-import { getChildIds, getParentId } from '../core/workItemUtils';
-import DevOpsService, { IDevOpsService } from './DevOpsService';
+import { getChildIds, getParentId } from '../core/WorkItemUtils';
+import { ExtendedWorkItemTrackingRestClient } from '../WorkItemTracking/ExtendedWorkItemTrackingRestClient';
+import { DevOpsService, IDevOpsService } from './DevOpsService';
 
 export interface IWorkItemService {
   getParentForWorkItem(
@@ -39,7 +38,7 @@ export interface IWorkItemService {
   getTags(): Promise<WorkItemTagDefinition[] | undefined>;
 }
 
-class WorkItemService implements IWorkItemService {
+export class WorkItemService implements IWorkItemService {
   private _devOpsService: IDevOpsService;
   private _processTemplateTypeKey = 'System.ProcessTemplateType';
   constructor(devOpsService?: IDevOpsService) {
@@ -169,4 +168,3 @@ class WorkItemService implements IWorkItemService {
     }
   }
 }
-export default WorkItemService;

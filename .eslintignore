@@ -6,3 +6,4 @@ ci/**
 docs/**
 marketplace/**
 **/__mocks__/**
+**/__tests__/**

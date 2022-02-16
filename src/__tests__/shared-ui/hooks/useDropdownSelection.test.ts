@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { IListBoxItem } from 'azure-devops-ui/ListBox';
 
-import useDropdownSelection from '../../../shared-ui/hooks/useDropdownSelection';
+import { useDropdownSelection } from '../../../shared-ui/hooks/useDropdownSelection';
 
 describe('useDropdownSelection', () => {
   describe('useDropdownSelection - Single', () => {

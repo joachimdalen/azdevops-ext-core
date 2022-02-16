@@ -1,6 +1,6 @@
-import { asyncFilter, groupBy } from '../..';
+import { asyncFilter, groupBy } from '../../core/CoreUtils';
 
-describe('utils', () => {
+describe('CoreUtils', () => {
   describe('asyncFilter', () => {
     it('filters correctly', async () => {
       const items = [true, false, true];

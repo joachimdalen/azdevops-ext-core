@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { render, screen } from '@testing-library/react';
 
-import VersionDisplay from '../../../shared-ui/component/VersionDisplay';
+import { VersionDisplay } from '../../../shared-ui/component/VersionDisplay';
 
 describe('VersionDisplay', () => {
   process.env.EXTENSION_VERSION = '1.2.3';

@@ -1,6 +1,7 @@
 import { WorkItem, WorkItemType } from 'azure-devops-extension-api/WorkItemTracking';
 
-import { isDefined } from '..';
+import { isDefined } from './CoreUtils';
+
 
 const titleField = 'System.Title';
 const parentField = 'System.LinkTypes.Hierarchy-Reverse';

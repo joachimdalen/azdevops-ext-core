@@ -2,13 +2,13 @@ import { Button, IButtonProps } from 'azure-devops-ui/Button';
 import { ButtonGroup } from 'azure-devops-ui/ButtonGroup';
 import { Icon, IIconProps } from 'azure-devops-ui/Icon';
 
-interface ExtendedZeroDataProps {
+export interface ExtendedZeroDataProps {
   title: string;
   description?: string;
   buttons: IButtonProps[];
   icon?: IIconProps;
 }
-const ExtendedZeroData = ({
+export const ExtendedZeroData = ({
   buttons,
   icon,
   title,
@@ -27,5 +27,3 @@ const ExtendedZeroData = ({
     </div>
   );
 };
-
-export default ExtendedZeroData;
