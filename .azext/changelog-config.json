@@ -52,7 +52,7 @@
   "attributionLinkTextFormat": {
     "format": "@{{ghUsername}}"
   },
-  "knownAuthors": [],
+  "knownAuthors": ["joachimdalen"],
   "useDescriptiveIssues": true,
   "useDescriptivePullRequests": true,
   "replaceEmojis": {

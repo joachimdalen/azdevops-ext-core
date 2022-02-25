@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 850435540,
+      "number": 5,
+      "submitter": "joachimdalen",
+      "title": "Updates",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/5"
+    },
+    {
       "id": 842996529,
       "number": 2,
       "submitter": "joachimdalen",

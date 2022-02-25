@@ -1,4 +1,5 @@
 import {
+  IDialogOptions,
   IGlobalMessagesService,
   IHostNavigationService,
   IHostPageLayoutService,
@@ -15,9 +16,10 @@ export interface IDevOpsService {
   showPanel<T, PanelIds>(id: PanelIds, options: IPanelOptions<T>): Promise<void>;
   openLink(url: string): Promise<void>;
   getCurrentWorkItemId(): Promise<number | undefined>;
+  showDialog<T, DialogIds>(id: DialogIds, options: IDialogOptions<T>): Promise<void>;
 }
 
-export default class DevOpsService implements IDevOpsService {
+export class DevOpsService implements IDevOpsService {
   public async getProject(): Promise<IProjectInfo | undefined> {
     const projectService = await DevOps.getService<IProjectPageService>(
       'ms.vss-tfs-web.tfs-page-data-service'
@@ -34,6 +36,15 @@ export default class DevOpsService implements IDevOpsService {
       message: message
     });
   }
+
+  public async showDialog<T, DialogIds>(id: DialogIds, options: IDialogOptions<T>): Promise<void> {
+    const dialogService = await DevOps.getService<IHostPageLayoutService>(
+      'ms.vss-features.host-page-layout-service'
+    );
+
+    dialogService.openCustomDialog(`${DevOps.getExtensionContext().id}.${id}`, options);
+  }
+
   public async showPanel<T, PanelIds>(id: PanelIds, options: IPanelOptions<T>): Promise<void> {
     const dialogService = await DevOps.getService<IHostPageLayoutService>(
       'ms.vss-features.host-page-layout-service'

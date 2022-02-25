@@ -1,6 +1,6 @@
 import { IPanelOptions, IProjectInfo, IToast } from 'azure-devops-extension-api';
 
-import { DevOpsService } from '../..';
+import { DevOpsService } from '../../services/DevOpsService';
 import {
   mockAddToast,
   mockGetProject,

@@ -2,6 +2,7 @@ import { getClient } from 'azure-devops-extension-api/Common';
 import { CoreRestClient, ProjectProperty } from 'azure-devops-extension-api/Core';
 import {
   WorkItem,
+  WorkItemErrorPolicy,
   WorkItemExpand,
   WorkItemTagDefinition,
   WorkItemTrackingRestClient,
@@ -9,9 +10,9 @@ import {
 } from 'azure-devops-extension-api/WorkItemTracking';
 import { WorkItemTrackingProcessRestClient } from 'azure-devops-extension-api/WorkItemTrackingProcess';
 
-import { ExtendedWorkItemTrackingRestClient } from '../clients/WorkItemTracking/ExtendedWorkItemTrackingRestClient';
-import { getChildIds, getParentId } from '../core/workItemUtils';
-import DevOpsService, { IDevOpsService } from './DevOpsService';
+import { getChildIds, getParentId } from '../core/WorkItemUtils';
+import { ExtendedWorkItemTrackingRestClient } from '../WorkItemTracking/ExtendedWorkItemTrackingRestClient';
+import { DevOpsService, IDevOpsService } from './DevOpsService';
 
 export interface IWorkItemService {
   getParentForWorkItem(
@@ -25,14 +26,19 @@ export interface IWorkItemService {
     expand?: WorkItemExpand
   ): Promise<WorkItem[] | undefined>;
   getWorkItemTypes(fromProcess?: boolean): Promise<WorkItemType[]>;
-  getWorkItem(id: number, expand?: WorkItemExpand): Promise<WorkItem>;
-  getWorkItems(ids: number[], expand?: WorkItemExpand): Promise<WorkItem[]>;
+  getWorkItem(id: number, expand?: WorkItemExpand, fields?: string[]): Promise<WorkItem>;
+  getWorkItems(
+    ids: number[],
+    expand?: WorkItemExpand,
+    fields?: string[],
+    errorPolicy?: WorkItemErrorPolicy
+  ): Promise<WorkItem[]>;
   setWorkItemState(id: number, state: string): Promise<WorkItem>;
   getProcessTemplateName(): Promise<string | undefined>;
   getTags(): Promise<WorkItemTagDefinition[] | undefined>;
 }
 
-class WorkItemService implements IWorkItemService {
+export class WorkItemService implements IWorkItemService {
   private _devOpsService: IDevOpsService;
   private _processTemplateTypeKey = 'System.ProcessTemplateType';
   constructor(devOpsService?: IDevOpsService) {
@@ -116,15 +122,24 @@ class WorkItemService implements IWorkItemService {
     return [];
   }
 
-  public async getWorkItem(id: number, expand?: WorkItemExpand): Promise<WorkItem> {
+  public async getWorkItem(
+    id: number,
+    expand?: WorkItemExpand,
+    fields?: string[]
+  ): Promise<WorkItem> {
     const client = getClient(WorkItemTrackingRestClient);
-    const wit = await client.getWorkItem(id, undefined, undefined, undefined, expand);
+    const wit = await client.getWorkItem(id, undefined, fields, undefined, expand);
     return wit;
   }
 
-  public async getWorkItems(ids: number[], expand?: WorkItemExpand): Promise<WorkItem[]> {
+  public async getWorkItems(
+    ids: number[],
+    expand?: WorkItemExpand,
+    fields?: string[],
+    errorPolicy?: WorkItemErrorPolicy
+  ): Promise<WorkItem[]> {
     const client = getClient(WorkItemTrackingRestClient);
-    const wit = await client.getWorkItems(ids, undefined, undefined, undefined, expand);
+    const wit = await client.getWorkItems(ids, undefined, fields, undefined, expand, errorPolicy);
     return wit;
   }
 
@@ -153,4 +168,3 @@ class WorkItemService implements IWorkItemService {
     }
   }
 }
-export default WorkItemService;

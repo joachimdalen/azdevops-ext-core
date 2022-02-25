@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useBooleanToggle(
+export function useBooleanToggle(
   initialValue = false
 ): readonly [boolean, (value?: React.SetStateAction<boolean> | undefined) => void] {
   const [state, setState] = useState(initialValue);

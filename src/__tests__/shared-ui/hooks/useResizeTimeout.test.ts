@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import { mockResize } from '../../../__mocks__/azure-devops-extension-sdk';
-import useResizeTimeout from '../../../shared-ui/hooks/useResizeTimeout';
+import { useResizeTimeout } from '../../../shared-ui/hooks/useResizeTimeout';
 
 describe('useResizeTimeout', () => {
   beforeEach(() => {

@@ -1,16 +1,17 @@
 import { Button, IButtonProps } from 'azure-devops-ui/Button';
 import { ButtonGroup } from 'azure-devops-ui/ButtonGroup';
 
-import VersionDisplay, { VersionDisplayProps } from '../component/VersionDisplay';
+import { VersionDisplay, VersionDisplayProps } from '../component/VersionDisplay';
 
-interface PanelWrapperProps extends VersionDisplayProps {
+
+export interface PanelWrapperProps extends VersionDisplayProps {
   children: React.ReactNode;
   cancelButton?: IButtonProps;
   okButton?: IButtonProps;
   showVersion?: boolean;
 }
 
-const PanelWrapper = ({
+export const PanelWrapper = ({
   children,
   cancelButton,
   okButton,
@@ -34,5 +35,3 @@ const PanelWrapper = ({
     </div>
   );
 };
-
-export default PanelWrapper;

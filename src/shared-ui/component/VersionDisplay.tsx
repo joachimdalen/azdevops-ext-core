@@ -3,7 +3,7 @@ export interface VersionDisplayProps {
   moduleVersion?: string;
 }
 
-const VersionDisplay = ({
+export const VersionDisplay = ({
   showExtensionVersion = true,
   moduleVersion
 }: VersionDisplayProps): JSX.Element => {
@@ -21,5 +21,3 @@ const VersionDisplay = ({
     </div>
   );
 };
-
-export default VersionDisplay;

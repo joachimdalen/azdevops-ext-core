@@ -60,15 +60,10 @@ stages:
                 mkdir $(Build.ArtifactStagingDirectory)/reports
                 cp $(Build.SourcesDirectory)/test-results.xml $(Build.ArtifactStagingDirectory)/reports/test-results.xml
           - task: Npm@1
-            displayName: 'Build package'
+            displayName: 'Build package and package'
             inputs:
               command: custom
-              customCommand: 'run build'
-          - task: Npm@1
-            displayName: 'Package'
-            inputs:
-              command: custom
-              customCommand: 'pack'
+              customCommand: 'run build -- ..'
           - task: Bash@3
             displayName: 'Move files'
             inputs:
