@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/azdevops-ext-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Core components that are used in my extensions for Azure DevOps",
   "scripts": {
     "build": "rimraf dist/ && tsc -d && npm run copy:styles && node ./build-package.js",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/joachimdalen/azdevops-ext-core#readme",
   "devDependencies": {
-    "@joachimdalen/azext": "^0.5.0",
+    "@joachimdalen/azext": "^0.7.0",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",

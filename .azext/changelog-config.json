@@ -22,7 +22,8 @@
     "fix": ":bug: Fixes",
     "tests": ":test_tube: Tests",
     "other": ":speech_balloon: Other",
-    "docs": ":memo: Documentation"
+    "docs": ":memo: Documentation",
+    "enhancement": ":mega: Enhancements ({{changeCount}})"
   },
   "typeResourcePrefixMapping": {
     "feature": {
