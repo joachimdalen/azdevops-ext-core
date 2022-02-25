@@ -3,6 +3,13 @@ const { resolve, basename, dirname, extname, join } = require('path');
 const { cwd } = require('process');
 const { readdir, writeFile, copyFile } = require('fs').promises;
 
+const args = process.argv;
+
+let outputPath = '..';
+if (args && args.length > 2) {
+  outputPath = args[2];
+}
+
 const allowedFileTypes = ['.js', '.ts'];
 
 async function getFiles(dir) {
@@ -37,7 +44,7 @@ async function buildPackage() {
   await copyFile('package.json', join('dist', 'package.json'));
   await copyFile('npm.md', join('dist', 'README.md'));
   exec(
-    'npm pack --pack-destination ..',
+    `npm pack --pack-destination ${outputPath}`,
     {
       cwd: resolve('dist')
     },
