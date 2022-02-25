@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 (2022-02-XX)
+## 0.3.0 (2022-02-25)
 
 ### 🚀 Features
 
@@ -19,6 +19,10 @@
 
 - Fixed static title in `ExtendedZeroData`
   - Fixed in: [PR#5 - Updates](https://github.com/joachimdalen/azdevops-ext-core/pull/5)
+
+### 📣 Enhancements (1)
+
+- Refactored imports and moved away from barrel imports
 
 ---
 
