@@ -1,60 +1,76 @@
 import {
   IdentitiesGetConnectionsResponseModel,
+  IdentitiesSearchRequestModel,
   IPeoplePickerProvider,
   IVssIdentityService
 } from 'azure-devops-extension-api/Identities';
-import * as DevOps from 'azure-devops-extension-sdk';
+import { getService } from 'azure-devops-extension-sdk';
 import { IIdentity } from 'azure-devops-ui/IdentityPicker';
 
 import { mapAbsoluteImageUrl } from '../utils/IdentityUtils';
 import { getHostUrl } from './HostUtils';
 
-class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
+export class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
   private identityService: Promise<IVssIdentityService>;
   private baseUrl: string | undefined;
-  constructor(localStorageKey?: string) {
-    this.identityService = DevOps.getService<IVssIdentityService>(
-      'ms.vss-features.identity-service'
-    );
 
+  constructor(localStorageKey?: string) {
+    this.identityService = getService<IVssIdentityService>('ms.vss-features.identity-service');
     this.baseUrl = getHostUrl(localStorageKey);
   }
 
-  addIdentitiesToMRU(identities: IIdentity[]): Promise<boolean> {
-    return this.identityService.then(function (identityService) {
+  public addIdentitiesToMRU = (identities: IIdentity[]): Promise<boolean> => {
+    return this.identityService.then(identityService => {
       return identityService.addMruIdentitiesAsync(identities);
     });
-  }
-  getEntityFromUniqueAttribute(entityId: string): IIdentity | PromiseLike<IIdentity> {
+  };
+
+  public getEntityFromUniqueAttribute = (entityId: string): IIdentity | PromiseLike<IIdentity> => {
     const url = this.baseUrl || '';
-    return this.identityService.then(function (identityService) {
+    return this.identityService.then(identityService => {
       return identityService
         .searchIdentitiesAsync(entityId, ['user'], ['ims', 'source'], 'uid')
         .then(function (x) {
           return mapAbsoluteImageUrl(url, x[0]);
         });
     });
-  }
-  onEmptyInputFocus(): IIdentity[] | PromiseLike<IIdentity[]> | null {
+  };
+
+  public onEmptyInputFocus = (): IIdentity[] | PromiseLike<IIdentity[]> => {
     const url = this.baseUrl || '';
-    return this.identityService.then(function (identityService) {
-      return identityService.getIdentityMruAsync().then(function (identities) {
+    return this.identityService.then(identityService => {
+      return identityService.getIdentityMruAsync().then(identities => {
         return identities.map(id => mapAbsoluteImageUrl(url, id));
       });
     });
-  }
-  onFilterIdentities(
+  };
+
+  public onFilterIdentities = (
     filter: string,
     selectedItems?: IIdentity[]
-  ): IIdentity[] | PromiseLike<IIdentity[]> | null {
+  ): Promise<IIdentity[]> | IIdentity[] => {
     return this._onSearchPersona(filter, selectedItems ? selectedItems : []);
-  }
+  };
 
-  _onSearchPersona(searchText: string, items: IIdentity[]): Promise<IIdentity[]> {
+  public onRequestConnectionInformation = (
+    entity: IIdentity,
+    getDirectReports?: boolean
+  ): IdentitiesGetConnectionsResponseModel | PromiseLike<IdentitiesGetConnectionsResponseModel> => {
+    return this.identityService.then(identityService => {
+      return identityService.getConnections(entity, getDirectReports);
+    });
+  };
+
+  public removeIdentitiesFromMRU = (identities: IIdentity[]): Promise<boolean> => {
+    return this.identityService.then(identityService => {
+      return identityService.removeMruIdentitiesAsync(identities);
+    });
+  };
+
+  private _onSearchPersona = (searchText: string, items: IIdentity[]): Promise<IIdentity[]> => {
     const url = this.baseUrl || '';
-    // eslint-disable-next-line no-var
-    var searchRequest: any = { query: searchText };
-    return this.identityService.then(function (identityService) {
+    const searchRequest: IdentitiesSearchRequestModel = { query: searchText };
+    return this.identityService.then(identityService => {
       return identityService
         .searchIdentitiesAsync(
           searchRequest.query,
@@ -63,31 +79,14 @@ class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
           searchRequest.queryTypeHint,
           searchRequest.options
         )
-        .then(function (identities) {
+        .then((identities: IIdentity[]) => {
           return identities
-            .filter(function (identity) {
-              return !items.some(function (selectedIdentity) {
-                return selectedIdentity.entityId === identity.entityId;
-              });
-            })
+            .filter(
+              identity =>
+                !items.some(selectedIdentity => selectedIdentity.entityId === identity.entityId)
+            )
             .map(id => mapAbsoluteImageUrl(url, id));
         });
     });
-  }
-  onRequestConnectionInformation(
-    entity: IIdentity,
-    getDirectReports?: boolean
-  ): IdentitiesGetConnectionsResponseModel | PromiseLike<IdentitiesGetConnectionsResponseModel> {
-    return this.identityService.then(function (identityService) {
-      return identityService.getConnections(entity, getDirectReports);
-    });
-  }
-
-  removeIdentitiesFromMRU(identities: IIdentity[]): Promise<boolean> {
-    return this.identityService.then(function (identityService) {
-      return identityService.removeMruIdentitiesAsync(identities);
-    });
-  }
+  };
 }
-
-export default ExtensionPeoplePickerProvider;
