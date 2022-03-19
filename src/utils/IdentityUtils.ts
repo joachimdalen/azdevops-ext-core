@@ -47,3 +47,15 @@ export const getLoggedInUser = async (): Promise<IInternalIdentity | undefined> 
 
   return id;
 };
+
+export const mapAbsoluteImageUrl = (baseUrl: string, identity: IIdentity): IIdentity => {
+  return {
+    ...identity,
+    image:
+      identity.image === undefined
+        ? undefined
+        : baseUrl === undefined
+        ? ''
+        : `${baseUrl}${identity.image}`
+  };
+};

@@ -7,21 +7,24 @@ import {
 import { useEffect, useMemo, useState } from 'react';
 
 import { IInternalIdentity, IInternalIdentityType } from '../../CommonTypes';
+import ExtensionPeoplePickerProvider from '../../core/ExtensionPeoplePickerProvider';
 
 export interface IdentityPickerProps
   extends Omit<IIdentityPickerDropdownProps, 'pickerProvider' | 'value' | 'onChange'> {
   identity?: IInternalIdentity;
   onChange: (item?: IInternalIdentity) => boolean | void;
+  localStorageKey?: string;
 }
 
 export const IdentityPicker = ({
   onChange,
   identity,
+  localStorageKey,
   ...rest
 }: IdentityPickerProps): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false);
   const identityProvider = useMemo(() => {
-    return new PeoplePickerProvider();
+    return new ExtensionPeoplePickerProvider(localStorageKey);
   }, []);
 
   useEffect(() => {
