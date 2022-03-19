@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 883954954,
+      "number": 7,
+      "submitter": "joachimdalen",
+      "title": "Add custom people picker",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/7"
+    },
+    {
       "id": 850435540,
       "number": 5,
       "submitter": "joachimdalen",

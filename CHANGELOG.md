@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.0 (2022-03-19)
+
+### 🚀 Features
+
+- Added `ExtensionPeoplePickerProvider` that will load avatar urls correctly
+
+  - Implemented in: [PR#7 - Add custom people picker](https://github.com/joachimdalen/azdevops-ext-core/pull/7)
+
+- Added `getHostUrl` to get the correct host url
+  - Implemented in: [PR#7 - Add custom people picker](https://github.com/joachimdalen/azdevops-ext-core/pull/7)
+
+---
+
 ## 0.3.0 (2022-02-25)
 
 ### 🚀 Features

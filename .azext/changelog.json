@@ -5,11 +5,13 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Added `ExtensionPeoplePickerProvider` that will load avatar urls correctly"
+        "description": "Added `ExtensionPeoplePickerProvider` that will load avatar urls correctly",
+        "pullRequest": 7
       },
       {
         "type": "feature",
-        "description": "Added `getHostUrl` to get the correct host url"
+        "description": "Added `getHostUrl` to get the correct host url",
+        "pullRequest": 7
       }
     ]
   },
