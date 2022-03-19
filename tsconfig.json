@@ -1,21 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES2019",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "ES6",
+    "declaration": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "amd",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "preserveConstEnums": true,
     "isolatedModules": true,
-    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "allowJs": true,
     "outDir": "dist"
   },
-  "include": ["src"],
-  "exclude": ["src/__mocks__", "src/__tests__"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/__mocks__",
+    "src/__tests__"
+  ]
 }

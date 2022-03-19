@@ -1,5 +1,21 @@
 [
   {
+    "publishDate": "2022-03-19",
+    "version": "0.4.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added `ExtensionPeoplePickerProvider` that will load avatar urls correctly",
+        "pullRequest": 7
+      },
+      {
+        "type": "feature",
+        "description": "Added `getHostUrl` to get the correct host url",
+        "pullRequest": 7
+      }
+    ]
+  },
+  {
     "publishDate": "2022-02-25",
     "version": "0.3.0",
     "changes": [
