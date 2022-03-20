@@ -5,7 +5,8 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Change package build mode"
+        "description": "Change package build mode",
+        "pullRequest": 8
       }
     ]
   },
