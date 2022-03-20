@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0 (2022-03-20)
+
+### 🚀 Features
+
+- Change package build mode
+  - Implemented in: [PR#8 - Change package mode](https://github.com/joachimdalen/azdevops-ext-core/pull/8)
+
+---
+
 ## 0.4.0 (2022-03-19)
 
 ### 🚀 Features

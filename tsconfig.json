@@ -3,7 +3,7 @@
     "target": "ES6",
     "declaration": true,
     "strict": true,
-    "module": "amd",
+    "module": "ES6",
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "lib": [

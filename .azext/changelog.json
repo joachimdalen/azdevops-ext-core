@@ -1,5 +1,16 @@
 [
   {
+    "publishDate": "2022-03-20",
+    "version": "0.5.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Change package build mode",
+        "pullRequest": 8
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-19",
     "version": "0.4.0",
     "changes": [

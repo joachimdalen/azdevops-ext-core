@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 884155186,
+      "number": 8,
+      "submitter": "joachimdalen",
+      "title": "Change package mode",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/8"
+    },
+    {
       "id": 883954954,
       "number": 7,
       "submitter": "joachimdalen",
