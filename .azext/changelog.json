@@ -1,5 +1,21 @@
 [
   {
+    "publishDate": "2022-03-29",
+    "version": "0.6.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added wrapper class props to `PanelWrapper`",
+        "pullRequest": 9
+      },
+      {
+        "type": "maint",
+        "description": "Update dependencies",
+        "pullRequest": 9
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-20",
     "version": "0.5.0",
     "changes": [

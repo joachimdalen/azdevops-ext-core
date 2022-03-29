@@ -1,14 +1,16 @@
 import { Button, IButtonProps } from 'azure-devops-ui/Button';
 import { ButtonGroup } from 'azure-devops-ui/ButtonGroup';
+import cx from 'classnames';
 
 import { VersionDisplay, VersionDisplayProps } from '../component/VersionDisplay';
-
 
 export interface PanelWrapperProps extends VersionDisplayProps {
   children: React.ReactNode;
   cancelButton?: IButtonProps;
   okButton?: IButtonProps;
   showVersion?: boolean;
+  rootClassName?: string;
+  contentClassName?: string;
 }
 
 export const PanelWrapper = ({
@@ -17,11 +19,13 @@ export const PanelWrapper = ({
   okButton,
   showVersion = true,
   moduleVersion,
-  showExtensionVersion
+  showExtensionVersion,
+  rootClassName,
+  contentClassName
 }: PanelWrapperProps): JSX.Element => {
   return (
-    <div className="flex-column flex-grow">
-      <div className="flex-grow">{children}</div>
+    <div className={cx('flex-column flex-grow', rootClassName)}>
+      <div className={cx('flex-grow', contentClassName)}>{children}</div>
       <ButtonGroup className="justify-space-between flex-center margin-bottom-16">
         {cancelButton && <Button {...cancelButton} />}
         {showVersion && (
