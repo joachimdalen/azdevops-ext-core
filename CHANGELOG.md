@@ -5,10 +5,12 @@
 ### 🚀 Features (1)
 
 - Added wrapper class props to `PanelWrapper`
+  - Implemented in: [PR#9 - Add panel wrapper class props](https://github.com/joachimdalen/azdevops-ext-core/pull/9)
 
 ### 🛠️ Maintenance (1)
 
 - Update dependencies
+  - Pull Request: [PR#9 - Add panel wrapper class props](https://github.com/joachimdalen/azdevops-ext-core/pull/9)
 
 ---
 

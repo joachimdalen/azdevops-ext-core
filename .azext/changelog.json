@@ -5,11 +5,13 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Added wrapper class props to `PanelWrapper`"
+        "description": "Added wrapper class props to `PanelWrapper`",
+        "pullRequest": 9
       },
       {
         "type": "maint",
-        "description": "Update dependencies"
+        "description": "Update dependencies",
+        "pullRequest": 9
       }
     ]
   },
