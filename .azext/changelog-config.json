@@ -18,12 +18,13 @@
   },
   "typeSize": "h3",
   "typeMapping": {
-    "feature": ":rocket: Features",
-    "fix": ":bug: Fixes",
-    "tests": ":test_tube: Tests",
-    "other": ":speech_balloon: Other",
-    "docs": ":memo: Documentation",
-    "enhancement": ":mega: Enhancements ({{changeCount}})"
+    "feature": ":rocket: Features ({{changeCount}})",
+    "fix": ":bug: Fixes ({{changeCount}})",
+    "tests": ":test_tube: Tests ({{changeCount}})",
+    "other": ":speech_balloon: Other ({{changeCount}})",
+    "docs": ":memo: Documentation ({{changeCount}})",
+    "enhancement": ":mega: Enhancements ({{changeCount}})",
+    "maint": ":hammer_and_wrench: Maintenance ({{changeCount}})"
   },
   "typeResourcePrefixMapping": {
     "feature": {
