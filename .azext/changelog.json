@@ -1,5 +1,15 @@
 [
   {
+    "publishDate": "2022-03-31",
+    "version": "0.7.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added `ExtendedWikiRestClient`"
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-29",
     "version": "0.6.0",
     "changes": [

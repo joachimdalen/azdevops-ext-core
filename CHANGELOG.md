@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 (2022-03-31)
+
+### 🚀 Features (1)
+
+- Added `ExtendedWikiRestClient`
+
+---
+
 ## 0.6.0 (2022-03-29)
 
 ### 🚀 Features (1)
