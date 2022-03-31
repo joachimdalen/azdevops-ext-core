@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0 (2022-03-31)
+
+### 🐛 Fixes (1)
+
+- Removed `font-family` override from container mixin
+
+---
+
 ## 0.7.0 (2022-03-31)
 
 ### 🚀 Features (1)
