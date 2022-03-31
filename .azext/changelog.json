@@ -1,6 +1,17 @@
 [
   {
     "publishDate": "2022-03-31",
+    "version": "0.8.0",
+    "changes": [
+      {
+        "type": "fix",
+        "description": "Removed `font-family` override from container mixin",
+        "pullRequest": 11
+      }
+    ]
+  },
+  {
+    "publishDate": "2022-03-31",
     "version": "0.7.0",
     "changes": [
       {

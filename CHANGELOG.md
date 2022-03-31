@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.0 (2022-03-31)
+
+### 🐛 Fixes (1)
+
+- Removed `font-family` override from container mixin
+  - Fixed in: [PR#11 - Remove font-family override](https://github.com/joachimdalen/azdevops-ext-core/pull/11)
+
+---
+
 ## 0.7.0 (2022-03-31)
 
 ### 🚀 Features (1)
