@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 896253380,
+      "number": 11,
+      "submitter": "joachimdalen",
+      "title": "Remove font-family override",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/11"
+    },
+    {
       "id": 893239125,
       "number": 9,
       "submitter": "joachimdalen",

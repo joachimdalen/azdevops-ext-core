@@ -5,6 +5,7 @@
 ### 🐛 Fixes (1)
 
 - Removed `font-family` override from container mixin
+  - Fixed in: [PR#11 - Remove font-family override](https://github.com/joachimdalen/azdevops-ext-core/pull/11)
 
 ---
 
