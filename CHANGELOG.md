@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.0 (2022-14-19)
+
+### 🚀 Features (1)
+
+- Add ability to return url with org from HostUtils
+
+### 🛠️ Maintenance (1)
+
+- Update dependencies
+
+---
+
 ## 0.8.0 (2022-03-31)
 
 ### 🐛 Fixes (1)
