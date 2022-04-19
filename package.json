@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/azdevops-ext-core",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Core components that are used in my extensions for Azure DevOps",
   "scripts": {
     "build": "rimraf dist/ && tsc -d && npm run copy:styles && node ./build-package.js",
