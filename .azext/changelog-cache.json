@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 913350594,
+      "number": 12,
+      "submitter": "joachimdalen",
+      "title": "Add ability to get base url with organization name",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/12"
+    },
+    {
       "id": 896253380,
       "number": 11,
       "submitter": "joachimdalen",

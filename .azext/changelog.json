@@ -5,11 +5,13 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Add ability to return url with org from HostUtils"
+        "description": "Add ability to return url with org from HostUtils",
+        "pullRequest": 12
       },
       {
         "type": "maint",
-        "description": "Update dependencies"
+        "description": "Update dependencies",
+        "pullRequest": 12
       }
     ]
   },
