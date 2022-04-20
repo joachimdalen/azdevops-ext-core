@@ -67,7 +67,7 @@ export const mockGetProject = jest.fn();
 export const mockAddToast = jest.fn();
 export const mockOpenPanel = jest.fn();
 export const mockOpenNewWindow = jest.fn();
-
+export const mockGetResourceAreaLocation = jest.fn();
 /**
  * Mocked getService returns mocked methods
  */
@@ -98,6 +98,13 @@ export function getService(contributionId: string) {
         openNewWindow: mockOpenNewWindow
       };
     }
+    case 'ms.vss-features.location-service': {
+      return new Promise(resolve =>
+        resolve({
+          getResourceAreaLocation: getResourceAreaLocation
+        })
+      );
+    }
   }
 }
 
@@ -118,6 +125,9 @@ export function resize(width?: number, height?: number) {
 
 export function ready() {
   return new Promise(resolve => resolve(mockReady()));
+}
+export function getResourceAreaLocation(resourceAreaId: string): Promise<string> {
+  return new Promise(resolve => resolve(mockGetResourceAreaLocation(resourceAreaId)));
 }
 export function notifyLoadSucceeded() {
   mockNotifyLoadSucceeded();

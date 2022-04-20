@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.9.0 (2022-14-20)
+
+### 🚀 Features (1)
+
+- Add ability to return url with org from HostUtils
+  - Implemented in: [PR#12 - Add ability to get base url with organization name](https://github.com/joachimdalen/azdevops-ext-core/pull/12)
+
+### 🛠️ Maintenance (1)
+
+- Update dependencies
+  - Pull Request: [PR#12 - Add ability to get base url with organization name](https://github.com/joachimdalen/azdevops-ext-core/pull/12)
+
+---
+
 ## 0.8.0 (2022-03-31)
 
 ### 🐛 Fixes (1)

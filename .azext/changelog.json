@@ -1,5 +1,21 @@
 [
   {
+    "publishDate": "2022-14-20",
+    "version": "0.9.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Add ability to return url with org from HostUtils",
+        "pullRequest": 12
+      },
+      {
+        "type": "maint",
+        "description": "Update dependencies",
+        "pullRequest": 12
+      }
+    ]
+  },
+  {
     "publishDate": "2022-03-31",
     "version": "0.8.0",
     "changes": [
