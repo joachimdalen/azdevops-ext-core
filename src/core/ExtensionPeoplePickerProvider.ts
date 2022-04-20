@@ -12,11 +12,11 @@ import { getHostUrl } from './HostUtils';
 
 export class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
   private identityService: Promise<IVssIdentityService>;
-  private baseUrl: string | undefined;
+  private localStorageKey: string | undefined;
 
   constructor(localStorageKey?: string) {
     this.identityService = getService<IVssIdentityService>('ms.vss-features.identity-service');
-    this.baseUrl = getHostUrl(localStorageKey);
+    this.localStorageKey = localStorageKey;
   }
 
   public addIdentitiesToMRU = (identities: IIdentity[]): Promise<boolean> => {
@@ -26,21 +26,25 @@ export class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
   };
 
   public getEntityFromUniqueAttribute = (entityId: string): IIdentity | PromiseLike<IIdentity> => {
-    const url = this.baseUrl || '';
-    return this.identityService.then(identityService => {
-      return identityService
-        .searchIdentitiesAsync(entityId, ['user'], ['ims', 'source'], 'uid')
-        .then(function (x) {
-          return mapAbsoluteImageUrl(url, x[0]);
-        });
+    return getHostUrl(this.localStorageKey).then(hostUrl => {
+      const url = hostUrl || '';
+      return this.identityService.then(identityService => {
+        return identityService
+          .searchIdentitiesAsync(entityId, ['user'], ['ims', 'source'], 'uid')
+          .then(function (x) {
+            return mapAbsoluteImageUrl(url, x[0]);
+          });
+      });
     });
   };
 
   public onEmptyInputFocus = (): IIdentity[] | PromiseLike<IIdentity[]> => {
-    const url = this.baseUrl || '';
-    return this.identityService.then(identityService => {
-      return identityService.getIdentityMruAsync().then(identities => {
-        return identities.map(id => mapAbsoluteImageUrl(url, id));
+    return getHostUrl(this.localStorageKey).then(hostUrl => {
+      const url = hostUrl || '';
+      return this.identityService.then(identityService => {
+        return identityService.getIdentityMruAsync().then(identities => {
+          return identities.map(id => mapAbsoluteImageUrl(url, id));
+        });
       });
     });
   };
@@ -68,25 +72,27 @@ export class ExtensionPeoplePickerProvider implements IPeoplePickerProvider {
   };
 
   private _onSearchPersona = (searchText: string, items: IIdentity[]): Promise<IIdentity[]> => {
-    const url = this.baseUrl || '';
-    const searchRequest: IdentitiesSearchRequestModel = { query: searchText };
-    return this.identityService.then(identityService => {
-      return identityService
-        .searchIdentitiesAsync(
-          searchRequest.query,
-          searchRequest.identityTypes,
-          searchRequest.operationScopes,
-          searchRequest.queryTypeHint,
-          searchRequest.options
-        )
-        .then((identities: IIdentity[]) => {
-          return identities
-            .filter(
-              identity =>
-                !items.some(selectedIdentity => selectedIdentity.entityId === identity.entityId)
-            )
-            .map(id => mapAbsoluteImageUrl(url, id));
-        });
+    return getHostUrl(this.localStorageKey).then(hostUrl => {
+      const url = hostUrl || '';
+      const searchRequest: IdentitiesSearchRequestModel = { query: searchText };
+      return this.identityService.then(identityService => {
+        return identityService
+          .searchIdentitiesAsync(
+            searchRequest.query,
+            searchRequest.identityTypes,
+            searchRequest.operationScopes,
+            searchRequest.queryTypeHint,
+            searchRequest.options
+          )
+          .then((identities: IIdentity[]) => {
+            return identities
+              .filter(
+                identity =>
+                  !items.some(selectedIdentity => selectedIdentity.entityId === identity.entityId)
+              )
+              .map(id => mapAbsoluteImageUrl(url, id));
+          });
+      });
     });
   };
 }
