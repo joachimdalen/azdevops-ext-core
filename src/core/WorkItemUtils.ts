@@ -2,11 +2,11 @@ import { WorkItem, WorkItemType } from 'azure-devops-extension-api/WorkItemTrack
 
 import { isDefined } from './CoreUtils';
 
-
 const titleField = 'System.Title';
 const parentField = 'System.LinkTypes.Hierarchy-Reverse';
 const childField = 'System.LinkTypes.Hierarchy-Forward';
 const workItemType = 'System.WorkItemType';
+const state = 'System.State';
 
 /**
  *
@@ -58,6 +58,13 @@ export const getChildIds = (workItem: WorkItem): number[] | undefined => {
  */
 export const getWorkItemTypeDisplayName = (workItem: WorkItem): string =>
   workItem.fields[workItemType];
+
+/**
+ * Get work item state
+ * @param workItem
+ * @returns Work item state
+ */
+export const getWorkItemState = (workItem: WorkItem): string => workItem.fields[state];
 
 /**
  * Get work item type reference name. E.g "User Story" => "Microsoft.VSTS.WorkItemTypes.UserStory"

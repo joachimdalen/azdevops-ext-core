@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.0 (2022-14-26)
+
+### 🚀 Features (2)
+
+- Added `getWorkItemState`
+
+- Added `WorkItemStateDisplay`
+
+---
+
 ## 0.9.0 (2022-14-20)
 
 ### 🚀 Features (1)
