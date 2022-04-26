@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 919666054,
+      "number": 13,
+      "submitter": "joachimdalen",
+      "title": "Add work item state display",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/13"
+    },
+    {
       "id": 913350594,
       "number": 12,
       "submitter": "joachimdalen",

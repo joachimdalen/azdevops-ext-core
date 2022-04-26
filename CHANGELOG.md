@@ -1,6 +1,19 @@
 # Changelog
 
-## 0.9.0 (2022-14-20)
+## 0.10.0 (2022-04-26)
+
+### 🚀 Features (2)
+
+- Added `getWorkItemState`
+
+  - Implemented in: [PR#13 - Add work item state display](https://github.com/joachimdalen/azdevops-ext-core/pull/13)
+
+- Added `WorkItemStateDisplay`
+  - Implemented in: [PR#13 - Add work item state display](https://github.com/joachimdalen/azdevops-ext-core/pull/13)
+
+---
+
+## 0.9.0 (2022-04-20)
 
 ### 🚀 Features (1)
 
