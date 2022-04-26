@@ -5,11 +5,13 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Added `getWorkItemState`"
+        "description": "Added `getWorkItemState`",
+        "pullRequest": 13
       },
       {
         "type": "feature",
-        "description": "Added `WorkItemStateDisplay`"
+        "description": "Added `WorkItemStateDisplay`",
+        "pullRequest": 13
       }
     ]
   },

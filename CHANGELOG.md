@@ -6,7 +6,10 @@
 
 - Added `getWorkItemState`
 
+  - Implemented in: [PR#13 - Add work item state display](https://github.com/joachimdalen/azdevops-ext-core/pull/13)
+
 - Added `WorkItemStateDisplay`
+  - Implemented in: [PR#13 - Add work item state display](https://github.com/joachimdalen/azdevops-ext-core/pull/13)
 
 ---
 
