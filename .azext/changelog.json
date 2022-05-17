@@ -1,5 +1,26 @@
 [
   {
+    "publishDate": "2022-05-17",
+    "version": "0.11.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added validation utils based on yup; `parseValidationError`, `getCombined`, `hasError`",
+        "pullRequest": 14
+      },
+      {
+        "type": "feature",
+        "description": "Added `capitalizeFirstLetter`",
+        "pullRequest": 14
+      },
+      {
+        "type": "maint",
+        "description": "Update dependencies",
+        "pullRequest": 14
+      }
+    ]
+  },
+  {
     "publishDate": "2022-04-26",
     "version": "0.10.0",
     "changes": [

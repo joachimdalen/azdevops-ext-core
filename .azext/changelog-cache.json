@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 938799038,
+      "number": 14,
+      "submitter": "joachimdalen",
+      "title": "Add new string and validation utils",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/14"
+    },
+    {
       "id": 919666054,
       "number": 13,
       "submitter": "joachimdalen",

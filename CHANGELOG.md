@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.11.0 (2022-05-17)
+
+### 🚀 Features (2)
+
+- Added validation utils based on yup; `parseValidationError`, `getCombined`, `hasError`
+
+  - Implemented in: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
+
+- Added `capitalizeFirstLetter`
+  - Implemented in: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
+
+### 🛠️ Maintenance (1)
+
+- Update dependencies
+  - Pull Request: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
+
+---
+
 ## 0.10.0 (2022-04-26)
 
 ### 🚀 Features (2)
