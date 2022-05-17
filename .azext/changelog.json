@@ -5,15 +5,18 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Added validation utils based on yup; `parseValidationError`, `getCombined`, `hasError`"
+        "description": "Added validation utils based on yup; `parseValidationError`, `getCombined`, `hasError`",
+        "pullRequest": 14
       },
       {
         "type": "feature",
-        "description": "Added `capitalizeFirstLetter`"
+        "description": "Added `capitalizeFirstLetter`",
+        "pullRequest": 14
       },
       {
         "type": "maint",
-        "description": "Update dependencies"
+        "description": "Update dependencies",
+        "pullRequest": 14
       }
     ]
   },
