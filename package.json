@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/azdevops-ext-core",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Core components that are used in my extensions for Azure DevOps",
   "scripts": {
     "build": "rimraf dist/ && tsc -d && npm run copy:styles && node ./build-package.js",
@@ -54,6 +54,7 @@
     "azure-devops-extension-sdk": "^2.0.11",
     "azure-devops-ui": "^2.167.28",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "yup": "^0.32.11"
   }
 }
