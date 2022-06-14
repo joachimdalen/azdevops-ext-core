@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 967096435,
+      "number": 16,
+      "submitter": "joachimdalen",
+      "title": "Add more validation utils",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/16"
+    },
+    {
       "id": 938799038,
       "number": 14,
       "submitter": "joachimdalen",
