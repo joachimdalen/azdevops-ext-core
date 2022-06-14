@@ -1,5 +1,16 @@
 [
   {
+    "publishDate": "2022-06-14",
+    "version": "0.12.0",
+    "changes": [
+      {
+        "type": "feature",
+        "description": "Added validation utils `getValidationCountByPattern`, `getValidationCount`, `useValidation`",
+        "pullRequest": 16
+      }
+    ]
+  },
+  {
     "publishDate": "2022-05-17",
     "version": "0.11.0",
     "changes": [

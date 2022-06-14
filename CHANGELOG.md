@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.0 (2022-06-14)
+
+### 🚀 Features (1)
+
+- Added validation utils `getValidationCountByPattern`, `getValidationCount`, `useValidation`
+  - Implemented in: [PR#16 - Add more validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/16)
+
+---
+
 ## 0.11.0 (2022-05-17)
 
 ### 🚀 Features (2)

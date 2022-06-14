@@ -1,8 +1,9 @@
-import { ValidationError } from 'yup';
+import { ValidationError as YupValidationError } from 'yup';
 
 import { capitalizeFirstLetter } from './StringUtils';
+export type ValidationErrors = { [key: string]: string[] };
 
-export const parseValidationError = (error: ValidationError): { [key: string]: string[] } => {
+export const parseValidationError = (error: YupValidationError): ValidationErrors => {
   const data = error.inner
     .map((x: any) => {
       return {
@@ -28,7 +29,7 @@ export const parseValidationError = (error: ValidationError): { [key: string]: s
 };
 
 export const getCombined = (
-  errors: { [key: string]: string[] } | undefined,
+  errors: ValidationErrors | undefined,
   key: string,
   alternateKey?: string
 ): string | undefined => {
@@ -47,4 +48,26 @@ export const hasError = (errors: { [key: string]: string[] } | undefined, key: s
   if (errors[key] === undefined) return false;
 
   return true;
+};
+
+export const getValidationCountByPattern = (
+  errors: ValidationErrors | undefined,
+  match: RegExp
+): number | undefined => {
+  if (errors === undefined) return undefined;
+  const count = Object.keys(errors).filter(x => x.match(match)).length;
+
+  if (count > 0) return count;
+  return undefined;
+};
+
+export const getValidationCount = (
+  errors: ValidationErrors | undefined,
+  fields: string[]
+): number | undefined => {
+  if (errors === undefined) return undefined;
+  const count = Object.keys(errors).filter(x => fields.includes(x)).length;
+
+  if (count > 0) return count;
+  return undefined;
 };
