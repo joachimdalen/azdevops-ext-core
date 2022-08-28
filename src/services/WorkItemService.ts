@@ -4,6 +4,7 @@ import {
   WorkItem,
   WorkItemErrorPolicy,
   WorkItemExpand,
+  WorkItemQueryResult,
   WorkItemTagDefinition,
   WorkItemTrackingRestClient,
   WorkItemType
@@ -36,6 +37,7 @@ export interface IWorkItemService {
   setWorkItemState(id: number, state: string): Promise<WorkItem>;
   getProcessTemplateName(): Promise<string | undefined>;
   getTags(): Promise<WorkItemTagDefinition[] | undefined>;
+  queryWorkItems(wiql: string): Promise<WorkItemQueryResult | undefined>;
 }
 
 export class WorkItemService implements IWorkItemService {
@@ -165,6 +167,16 @@ export class WorkItemService implements IWorkItemService {
       const client = getClient(ExtendedWorkItemTrackingRestClient);
       const tags = await client.getWorkItemTags('demoproject');
       return tags;
+    }
+  }
+
+  public async queryWorkItems(wiql: string): Promise<WorkItemQueryResult | undefined> {
+    const project = await this._devOpsService.getProject();
+
+    if (project) {
+      const client = getClient(WorkItemTrackingRestClient);
+      const wit = await client.queryByWiql({ query: wiql }, project.name);
+      return wit;
     }
   }
 }

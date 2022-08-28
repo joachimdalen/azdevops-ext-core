@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.13.0 (2022-08-28)
+
+### 🚀 Features (1)
+
+- Added `queryWorkItems`
+  - Implemented in: [PR#17 - Add wiql query](https://github.com/joachimdalen/azdevops-ext-core/pull/17)
+
+---
+
 ## 0.12.0 (2022-06-14)
 
 ### 🚀 Features (1)
