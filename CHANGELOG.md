@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.13.0 (2022-08-28)
+
+### 🚀 Features (1)
+
+- Added `queryWorkItems`
+
+---
+
 ## 0.12.0 (2022-06-14)
 
 ### 🚀 Features (1)
