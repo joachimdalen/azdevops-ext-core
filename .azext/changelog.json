@@ -5,7 +5,8 @@
     "changes": [
       {
         "type": "feature",
-        "description": "Added `queryWorkItems`"
+        "description": "Added `queryWorkItems`",
+        "pullRequest": 17
       }
     ]
   },

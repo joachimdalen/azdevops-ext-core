@@ -5,6 +5,7 @@
 ### 🚀 Features (1)
 
 - Added `queryWorkItems`
+  - Implemented in: [PR#17 - Add wiql query](https://github.com/joachimdalen/azdevops-ext-core/pull/17)
 
 ---
 
