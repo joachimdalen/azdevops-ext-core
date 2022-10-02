@@ -5,6 +5,7 @@
 ### 🛠️ Maintenance (1)
 
 - Update dependencies
+  - Pull Request: [PR#18 - Update dependencies](https://github.com/joachimdalen/azdevops-ext-core/pull/18)
 
 ---
 
