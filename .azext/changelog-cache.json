@@ -2,6 +2,13 @@
   "issues": [],
   "pullRequests": [
     {
+      "id": 1073758735,
+      "number": 18,
+      "submitter": "joachimdalen",
+      "title": "Update dependencies",
+      "url": "https://github.com/joachimdalen/azdevops-ext-core/pull/18"
+    },
+    {
       "id": 1038847315,
       "number": 17,
       "submitter": "joachimdalen",
