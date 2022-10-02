@@ -1,6 +1,6 @@
 import { Button, IButtonProps } from 'azure-devops-ui/Button';
 import { ButtonGroup } from 'azure-devops-ui/ButtonGroup';
-import cx from 'classnames';
+import * as cx from 'classnames';
 
 import { VersionDisplay, VersionDisplayProps } from '../component/VersionDisplay';
 
