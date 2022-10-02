@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.0 (2022-10-02)
+
+### 🛠️ Maintenance (1)
+
+- Update dependencies
+
+---
+
 ## 0.13.0 (2022-08-28)
 
 ### 🚀 Features (1)
@@ -20,6 +28,11 @@
 
 ## 0.11.0 (2022-05-17)
 
+### 🛠️ Maintenance (1)
+
+- Update dependencies
+  - Pull Request: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
+
 ### 🚀 Features (2)
 
 - Added validation utils based on yup; `parseValidationError`, `getCombined`, `hasError`
@@ -28,11 +41,6 @@
 
 - Added `capitalizeFirstLetter`
   - Implemented in: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
-
-### 🛠️ Maintenance (1)
-
-- Update dependencies
-  - Pull Request: [PR#14 - Add new string and validation utils](https://github.com/joachimdalen/azdevops-ext-core/pull/14)
 
 ---
 
@@ -51,15 +59,15 @@
 
 ## 0.9.0 (2022-04-20)
 
-### 🚀 Features (1)
-
-- Add ability to return url with org from HostUtils
-  - Implemented in: [PR#12 - Add ability to get base url with organization name](https://github.com/joachimdalen/azdevops-ext-core/pull/12)
-
 ### 🛠️ Maintenance (1)
 
 - Update dependencies
   - Pull Request: [PR#12 - Add ability to get base url with organization name](https://github.com/joachimdalen/azdevops-ext-core/pull/12)
+
+### 🚀 Features (1)
+
+- Add ability to return url with org from HostUtils
+  - Implemented in: [PR#12 - Add ability to get base url with organization name](https://github.com/joachimdalen/azdevops-ext-core/pull/12)
 
 ---
 
@@ -82,15 +90,15 @@
 
 ## 0.6.0 (2022-03-29)
 
-### 🚀 Features (1)
-
-- Added wrapper class props to `PanelWrapper`
-  - Implemented in: [PR#9 - Add panel wrapper class props](https://github.com/joachimdalen/azdevops-ext-core/pull/9)
-
 ### 🛠️ Maintenance (1)
 
 - Update dependencies
   - Pull Request: [PR#9 - Add panel wrapper class props](https://github.com/joachimdalen/azdevops-ext-core/pull/9)
+
+### 🚀 Features (1)
+
+- Added wrapper class props to `PanelWrapper`
+  - Implemented in: [PR#9 - Add panel wrapper class props](https://github.com/joachimdalen/azdevops-ext-core/pull/9)
 
 ---
 
